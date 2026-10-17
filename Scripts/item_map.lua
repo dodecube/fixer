@@ -240,6 +240,20 @@ complex_item_map = {
 
 item_map = {}
 inverse_item_map = {}
+
+-- Items from older apworld generations (removed pools, renamed entries) that may no
+-- longer match any display name in the game's list_props datatable.
+-- Key: lowercase AP item name, value: internal prop key for GiveItem/spawnPropThroughGamemode.
+-- Extend this list if more unsupported item names show up mid-run.
+legacy_item_map = {
+    ["broomba"] =              "roomba",
+    ["gas welder"] =           "tool_gw",
+    ["toolbox"] =              "toolbox",
+    ["gas can"] =              "gascan",
+    ["large fuel tank"] =      "fueltank_0",
+    ["large fuel tank base"] = "fueltank_1"
+}
+
 function FillItemMap()
     item_map = {}
     inverse_item_map = {}

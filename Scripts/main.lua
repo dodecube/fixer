@@ -105,13 +105,27 @@ function GetNextItem()
         local item = item_list[i+1]
         if item.index >= i then
             local item_name = GetAPItemNameFromId(item.item)
+            if item_name == nil then
+                -- The data package has no name for this item ID: usually the apworld
+                -- installed on the server differs from the one the seed was generated with
+                if last_item_failed then
+                    AddHint("Item skipped", HintType.Warning)
+                    last_item_failed = false
+                    CheckAutoItem(i+1)
+                else
+                    AddHint("Received an item with an unknown ID (" .. tostring(item.item) .. ").\nThe server most likely has a different apworld version than the seed was generated with.\nPress F9 again to skip this item.\nIt will be lost forever if you do so", HintType.Error)
+                    last_item_failed = true
+                end
+                return
+            end
             local player = ap:get_player_alias(item.player)
             AppendItemsHint(item_name .. " from " .. player, false)
             local complex_item = complex_item_map[item_name]
             if complex_item then
                 complex_item()
             else
-                local internal_name = inverse_item_map[string.lower(item_name)]
+                local lowered = string.lower(item_name)
+                local internal_name = inverse_item_map[lowered] or legacy_item_map[lowered]
                 if internal_name ~= nil then
                     GiveItem(internal_name)
                 elseif last_item_failed then
@@ -662,10 +676,11 @@ RegisterConsoleCommandHandler("panic", function(FullCommand, Parameters)
     if #Parameters < 1 then
         return false
     end
+    local wanted = string.lower(table.concat(Parameters, " "))
     for _, item in ipairs(item_list) do
-        if item.flags & 1 > 0 then
+        if item.flags & 3 > 0 then
             local item_name = GetAPItemNameFromId(item.item)
-            if item_name == Parameters[1] then
+            if item_name ~= nil and string.lower(item_name) == wanted then
                 if auto_map[item_name] then
                     AddHint("You cannot replay auto redeemed items", HintType.Error)
                     return true
@@ -675,7 +690,8 @@ RegisterConsoleCommandHandler("panic", function(FullCommand, Parameters)
                     complex_item()
                     return true
                 end
-                local internal_name = inverse_item_map[string.lower(item_name)]
+                local lowered = string.lower(item_name)
+                local internal_name = inverse_item_map[lowered] or legacy_item_map[lowered]
                 if internal_name ~= nil then
                     AddHint("Giving " .. item_name, HintType.Info)
                     GiveItem(internal_name)
@@ -684,6 +700,6 @@ RegisterConsoleCommandHandler("panic", function(FullCommand, Parameters)
             end
         end
     end
-    AddHint("Unknown or not yet received item\nNote: You can only panic in progression items", HintType.Error)
+    AddHint("Unknown or not yet received item\nNote: You can only panic in progression or useful items", HintType.Error)
     return true
 end)
