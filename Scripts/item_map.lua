@@ -251,7 +251,8 @@ legacy_item_map = {
     ["toolbox"] =              "toolbox",
     ["gas can"] =              "gascan",
     ["large fuel tank"] =      "fueltank_0",
-    ["large fuel tank base"] = "fueltank_1"
+    ["large fuel tank base"] = "fueltank_1",
+    ["radioactive capsule"] =  "rad"
 }
 
 function FillItemMap()
