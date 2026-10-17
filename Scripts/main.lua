@@ -131,7 +131,7 @@ function GetNextItem()
                 complex_item()
             else
                 local lowered = string.lower(item_name)
-                local internal_name = inverse_item_map[lowered] or legacy_item_map[lowered]
+                local internal_name = inverse_item_map[lowered] or (legacy_item_map and legacy_item_map[lowered])
                 if internal_name ~= nil then
                     GiveItem(internal_name)
                 elseif last_item_failed then
@@ -701,7 +701,7 @@ RegisterConsoleCommandHandler("panic", function(FullCommand, Parameters)
                     return true
                 end
                 local lowered = string.lower(item_name)
-                local internal_name = inverse_item_map[lowered] or legacy_item_map[lowered]
+                local internal_name = inverse_item_map[lowered] or (legacy_item_map and legacy_item_map[lowered])
                 if internal_name ~= nil then
                     AddHint("Giving " .. item_name, HintType.Info)
                     GiveItem(internal_name)
