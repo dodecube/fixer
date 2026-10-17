@@ -120,6 +120,12 @@ function GetNextItem()
             end
             local player = ap:get_player_alias(item.player)
             AppendItemsHint(item_name .. " from " .. player, false)
+            if next(inverse_item_map) == nil then
+                -- The item name map is empty: FillItemMap most likely ran before
+                -- the game loaded its prop datatable. Retry lazily right now.
+                print("inverse_item_map is empty, refilling")
+                FillItemMap()
+            end
             local complex_item = complex_item_map[item_name]
             if complex_item then
                 complex_item()
@@ -675,6 +681,10 @@ end)
 RegisterConsoleCommandHandler("panic", function(FullCommand, Parameters)
     if #Parameters < 1 then
         return false
+    end
+    if next(inverse_item_map) == nil then
+        print("inverse_item_map is empty, refilling")
+        FillItemMap()
     end
     local wanted = string.lower(table.concat(Parameters, " "))
     for _, item in ipairs(item_list) do
