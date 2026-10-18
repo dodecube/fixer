@@ -1,4 +1,4 @@
-print("[MyLuaMod] Mod loaded\n")
+print("[MyLuaMod] Mod loaded (apfix2)\n")
 
 UEHelpers = require("UEHelpers")
 
@@ -26,6 +26,32 @@ items_hint_type = HintType.Info
 looking_at_location = -1
 
 local last_item_failed = false
+
+-- Resolve an AP item name to an internal prop key for GiveItem.
+-- Falls back to the legacy map, plural/singular variants, and finally a refill of
+-- the name map (at most once per 5 seconds) in case FillItemMap originally ran
+-- before the game loaded its prop datatable.
+local last_map_retry = 0
+function ResolveItemInternalName(item_name)
+    local lowered = string.lower(item_name)
+    local hit = inverse_item_map[lowered] or (legacy_item_map and legacy_item_map[lowered])
+    if hit == nil then
+        if string.sub(lowered, -1) == "s" then
+            local trimmed = string.sub(lowered, 1, -2)
+            hit = inverse_item_map[trimmed] or (legacy_item_map and legacy_item_map[trimmed])
+        else
+            local plural = lowered .. "s"
+            hit = inverse_item_map[plural] or (legacy_item_map and legacy_item_map[plural])
+        end
+    end
+    if hit == nil and os.clock() - last_map_retry > 5 then
+        last_map_retry = os.clock()
+        print("Item map miss for '" .. item_name .. "', refilling item map")
+        FillItemMap()
+        hit = inverse_item_map[lowered] or (legacy_item_map and legacy_item_map[lowered])
+    end
+    return hit
+end
 
 DELETE_LOCATION_ITEMS = true
 
@@ -105,13 +131,26 @@ function GetNextItem()
         local item = item_list[i+1]
         if item.index >= i then
             local item_name = GetAPItemNameFromId(item.item)
+            if item_name == nil then
+                -- The data package has no name for this item ID: usually the apworld
+                -- installed on the server differs from the one the seed was generated with
+                if last_item_failed then
+                    AddHint("Item skipped", HintType.Warning)
+                    last_item_failed = false
+                    CheckAutoItem(i+1)
+                else
+                    AddHint("Received an item with an unknown ID (" .. tostring(item.item) .. ").\nThe server most likely has a different apworld version than the seed was generated with.\nPress F9 again to skip this item.\nIt will be lost forever if you do so", HintType.Error)
+                    last_item_failed = true
+                end
+                return
+            end
             local player = ap:get_player_alias(item.player)
             AppendItemsHint(item_name .. " from " .. player, false)
             local complex_item = complex_item_map[item_name]
             if complex_item then
                 complex_item()
             else
-                local internal_name = inverse_item_map[string.lower(item_name)]
+                local internal_name = ResolveItemInternalName(item_name)
                 if internal_name ~= nil then
                     GiveItem(internal_name)
                 elseif last_item_failed then
@@ -662,10 +701,11 @@ RegisterConsoleCommandHandler("panic", function(FullCommand, Parameters)
     if #Parameters < 1 then
         return false
     end
+    local wanted = string.lower(table.concat(Parameters, " "))
     for _, item in ipairs(item_list) do
-        if item.flags & 1 > 0 then
+        if item.flags & 3 > 0 then
             local item_name = GetAPItemNameFromId(item.item)
-            if item_name == Parameters[1] then
+            if item_name ~= nil and string.lower(item_name) == wanted then
                 if auto_map[item_name] then
                     AddHint("You cannot replay auto redeemed items", HintType.Error)
                     return true
@@ -675,7 +715,7 @@ RegisterConsoleCommandHandler("panic", function(FullCommand, Parameters)
                     complex_item()
                     return true
                 end
-                local internal_name = inverse_item_map[string.lower(item_name)]
+                local internal_name = ResolveItemInternalName(item_name)
                 if internal_name ~= nil then
                     AddHint("Giving " .. item_name, HintType.Info)
                     GiveItem(internal_name)
@@ -684,6 +724,33 @@ RegisterConsoleCommandHandler("panic", function(FullCommand, Parameters)
             end
         end
     end
-    AddHint("Unknown or not yet received item\nNote: You can only panic in progression items", HintType.Error)
+    AddHint("Unknown or not yet received item\nNote: You can only panic in progression or useful items", HintType.Error)
+    return true
+end)
+
+RegisterConsoleCommandHandler("apdebug", function(FullCommand, Parameters)
+    local total = 0
+    for _ in pairs(inverse_item_map) do total = total + 1 end
+    print("=== AP debug: inverse_item_map entries: " .. total .. " ===")
+    local query = string.lower(table.concat(Parameters, " "))
+    if #query == 0 then
+        print("Usage: apdebug <item name>   (e.g. apdebug ball joint)")
+        return true
+    end
+    print("exact inverse  '" .. query .. "': " .. tostring(inverse_item_map[query]))
+    print("exact legacy   '" .. query .. "': " .. tostring(legacy_item_map and legacy_item_map[query]))
+    local variant = string.sub(query, -1) == "s" and string.sub(query, 1, -2) or (query .. "s")
+    print("variant   '" .. variant .. "': " .. tostring(inverse_item_map[variant]))
+    print("Candidates (substring over game display names):")
+    local count = 0
+    for key, display in pairs(item_map) do
+        local d = string.lower(display)
+        if string.find(d, query, 1, true) or string.find(query, d, 1, true) then
+            print("  row='" .. key .. "' display='" .. display .. "'")
+            count = count + 1
+            if count >= 20 then break end
+        end
+    end
+    if count == 0 then print("  (none)") end
     return true
 end)
