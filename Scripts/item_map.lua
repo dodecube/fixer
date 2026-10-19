@@ -240,10 +240,37 @@ complex_item_map = {
 
 item_map = {}
 inverse_item_map = {}
+
+-- Items from older apworld generations (removed pools, renamed entries) that may no
+-- longer match any display name in the game's list_props datatable.
+-- Key: lowercase AP item name, value: internal prop key for GiveItem/spawnPropThroughGamemode.
+-- Extend this list if more unsupported item names show up mid-run.
+legacy_item_map = {
+    ["broomba"] =              "roomba",
+    ["gas welder"] =           "tool_gw",
+    ["toolbox"] =              "toolbox",
+    ["gas can"] =              "gascan",
+    ["large fuel tank"] =      "fueltank_0",
+    ["large fuel tank base"] = "fueltank_1",
+    ["radioactive capsule"] =  "rad"
+}
+
 function FillItemMap()
     item_map = {}
     inverse_item_map = {}
     local datatable = StaticFindObject("/Game/main/datatables/list_props.list_props")
+    if not datatable:IsValid() then
+        -- Fallback: the hardcoded asset path can fail; scan every loaded DataTable instead
+        print("FillItemMap: list_props not found by path, scanning all DataTables")
+        for _, candidate in ipairs(FindAllOf("DataTable") or {}) do
+            local full_name = candidate:GetFullName()
+            if string.find(full_name, "list_props", 1, true) then
+                print("FillItemMap: found datatable by scan: " .. full_name)
+                datatable = candidate
+                break
+            end
+        end
+    end
     if datatable:IsValid() then
         print("Filling item map with " .. #datatable .. " items")
         local total = 0
@@ -275,5 +302,7 @@ function FillItemMap()
             end
         end
         print("Filtered down to " .. total .. " items")
+    else
+        print("FillItemMap: list_props datatable is not valid, item map is left empty!")
     end
 end
