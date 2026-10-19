@@ -1,0 +1,565 @@
+Voices of the Void — Archipelago apworld v0.7.0, стандартный пул предметов
+(источник: Nathan-R-Og/Archipelago, ветка votv, worlds/votv/data/*.py)
+
+=== Пул предметов (выдаются игроку): 174 шт ===
+ATV Upgrade (Air Control)
+ATV Upgrade (Alternator)
+ATV Upgrade (Belt)
+ATV Upgrade (Big Lights)
+ATV Upgrade (Bumper)
+ATV Upgrade (Container)
+ATV Upgrade (Floaties)
+ATV Upgrade (Map)
+ATV Upgrade (Overcharged Engine)
+ATV Upgrade (Radio)
+ATV Upgrade (Solar Panel)
+ATV wheel
+Admin Room Entrance
+Air Rune
+Air Tablet
+Alien Cutout Trap
+Alpha Roof Entrance
+Ammo Box
+Antibreather Plush
+Axe
+Badge
+Ball Joint
+Balloon Pack (WIP)
+Bathroom Entrance
+Bike Helmet
+Black Fog Trap
+Blue Argemia Plush
+Blue Kerfur
+Boar Trophy Head
+Bonus Points
+Bowtie
+Break Room Entrance
+Breaker Trap
+Broom
+Bunker Entrance
+Bunker Keycard
+Cacti
+Car Battery Charger
+Car Keys
+Chicken Sandwich
+Cig Pack
+Compost Bucket
+Cooking Book
+Coordinates Breaker
+Crowbar
+Cyan Argemia Plush
+Day
+Dead Flashlight Trap
+Deer Skull
+Deer Trophy Head
+Download Breaker
+Drunk Trap
+EMF Detector
+Earth Rune
+Earth Tablet
+Electronic Scrap Recipe
+Erie Plush
+Fire Rune
+Fire Tablet
+First Aid Medkit
+Flat Tire Trap
+Furfur Altar Leg 1
+Furfur Altar Leg 2
+Furfur Altar Top
+Furfur Plush
+Fuse
+Garage Entrance
+Gas Can
+Gas Welder
+Geiger Counter
+Glass Scrap Recipe
+Glasses
+Goat Trophy Head
+Green Argemia Plush
+Hacksaw
+Half Hook
+Hazmat Suit
+Hiking Boots
+Hook
+Jacket
+Jar of Honey
+Kerfur-Omega Complete Manual
+Kerfur-Omega Documents Binder
+Librarian Candle
+Lifecrystal Signal
+Lighter
+Limb Joint
+Magenta Argemia Plush
+Maid outfit
+Metal Detector
+Metal Scrap Recipe
+Monique Plush
+Negative Reputation Trap
+Nuclear Orange Argemia Plush
+Nuclear Pink Argemia Plush
+Nuclear Yellow Argemia Plush
+Old Rifle
+Omega AI Module
+Paper Scrap Recipe
+Perkele Llama
+Physical Module (Automatic Polarity Adjustment)
+Physical Module (Automatic Signal Processing)
+Physical Module (Autosave Signal to Database)
+Physical Module (Coordinate Triangle Visualise)
+Physical Module (Global Alert)
+Physical Module (Lightning Prediction)
+Physical Module (Log Tapes Compression)
+Physical Module (Radar Alarm)
+Physical Module (Radar Colors)
+Physical Module (Radar Path Tracking)
+Physical Module (Radar Radial Search)
+Physical Module (Radar Radius)
+Physical Module (Remote Keyboard)
+Physical Module (Spectrogram)
+Physical Module (Storm Filter)
+Pickaxe
+Pink Kerfur
+Pipebomb
+Plastic Scrap Recipe
+Playing Breaker
+Points Fine Trap
+Positive Reputation
+Processing Breaker
+Progressive Breaker Time
+Progressive Camera
+Progressive Coordinate Speed
+Progressive Cursor Drift
+Progressive Cursor Speed
+Progressive Detector Frequency
+Progressive Detector Quality
+Progressive Detector Strength
+Progressive Download Speed
+Progressive Ping Cooldown
+Progressive Ping Speed
+Progressive Ping Strength
+Progressive Processing Level
+Progressive Processing Speed
+Progressive Radar History
+Progressive Radar Speed
+Radioactive Capsule
+Radioactive Capsule Blueprint
+Ragdoll Trap
+Random Fuse Blowout
+Red Argemia Plush
+Red Kerfur
+Ritual Knife
+Rubber Scrap Recipe
+Rubble Recipe
+Scuba Mask
+Scuba Mask Tank
+Seed Pack (The Thingy)
+Server Room Entrance
+Shovel
+Shrimp Pack
+Skull
+Sponge
+Staff Room Entrance
+Storage Room Entrance
+TR1 Room Entrance
+TR2 Room Entrance
+TR3 Room Entrance
+Thiccfus Plush
+Tile
+Tinfoil Hat
+Toolbox
+Unknown Fruit
+Utility Closet Entrance
+Wall Clock
+Water Rune
+Water Tablet
+Watering Can
+Welding Mask
+Wood Scrap Recipe
+Yellow Argemia Plush
+
+=== Только shop-имена (в 0.7.0 в пул НЕ попадают, лишь лочатся в магазине): 385 шт ===
+AGL rocket
+Alarm clock
+Antique watch
+Arcade machine
+Ashtray
+Axle nail
+BBQ grill
+BBQ grill lid
+Baguette
+Baking tray
+Ball of red string
+Banana
+Bandage
+Barrel
+Basketball hoop
+Battery
+Battery charger
+Beacon
+Bedside table
+Beer
+Big flashlight
+Blueprint (Bee box)
+Blueprint (EMF equipment)
+Blueprint (Geiger equipment)
+Blueprint (Portable metal detector)
+Bookshelf
+Bowl large (open container)
+Bowl medium (open container)
+Bowl small (open container)
+Bread
+Bread mold
+Brick stack
+Broomba
+Bucket
+Bun
+Bunny doll (ragdoll)
+Bunny ears
+Burger
+Butter churn
+Cake (not a lie)
+Can opener
+Candle
+Car battery
+Cardboard box
+Cardboard box (2x2x2)
+Cardboard box (4x2x2)
+Cardboard box (4x4x2)
+Cardboard box (4x4x4)
+Cardboard box (8x4x4)
+Cardboard box (8x8x4)
+Cardboard box (8x8x8)
+Carrot [WIP]
+Cauldron
+Cement
+Cheese
+Chicken nugget
+Christmas decoration (three candles in a wreath)
+Christmas decoration (three candles)
+Christmas decoration (two candles in a wreath)
+Christmas decoration (wreath)
+Christmas lights
+Christmas lights (no light)
+Cigar
+Cinderblock
+Clean jar
+Clocks
+Coffee bag
+Coffee chocolate bar
+Coffee machine
+Coffee table
+Compass
+Cookie
+Cool funny party demon
+Cool funny triangulum aequilaterum
+Copper wire
+Cork board
+Couch (big)
+Couch (small)
+Crank flashlight
+Crate
+Cross bun
+Cubicle
+Cubicle wall (left corner)
+Cubicle wall (right corner)
+Cubicle wall (straight corner)
+Cucumber
+Cup
+Curtains
+Custom poster
+Data tape A
+Data tape B
+Data tape case
+Data tape case lid
+Desk lamp
+Desktop 3D printer
+Digital camera
+Drawer
+Drive
+Drive box
+Drive rack
+Duct tape
+Easter basket
+Easter egg 1/12
+Easter egg 10/12
+Easter egg 11/12
+Easter egg 12/12
+Easter egg 2/12
+Easter egg 3/12
+Easter egg 4/12
+Easter egg 5/12
+Easter egg 6/12
+Easter egg 7/12
+Easter egg 8/12
+Easter egg 9/12
+Easter sweet cake
+Empty Kerfur bowl (black)
+Empty Kerfur bowl (yellow)
+Erie head TV
+Fanny pack
+Farm pot
+Farm pot (alt)
+Farm pot (small)
+Faucet
+Fax/printer (WIP)
+Fire extinguisher
+Fire protection suit
+First aid medkit
+Flag (large)
+Flag (medium)
+Flag (small)
+Flashlight
+Floor lamp
+Floppy box
+Floppy disc (blue)
+Floppy disc (green)
+Floppy disc (red)
+Floppy disc (yellow)
+Flour bag
+Food box
+Frame
+GPU board
+Garbage bag
+Garbage bag roll
+Garden hose
+Ghost prop (floating)
+Ghost prop (ground)
+Glowstick (blue)
+Glowstick (cyan)
+Glowstick (green)
+Glowstick (magenta)
+Glowstick (red)
+Glowstick (white)
+Glowstick (yellow)
+Glue bottle
+Grandfather's clock
+Hammer
+Headphones (WIP)
+Heavy meds
+Hotdog
+Impact driver
+Industrial 3D printer
+Jack o'lantern (Argemia plush)
+Jack o'lantern (Erie)
+Jack o'lantern (Keljoy)
+Jack o'lantern (Kerfur)
+Jack o'lantern (Lambert)
+Jack o'lantern (Standard)
+Kallaks 1x1
+Kallaks 2x1
+Kallaks 4x1
+Kallaks 4x2
+Kerfur candy bowl (black)
+Kerfur candy bowl (yellow)
+Kitchen knife
+Krampus hat
+Large fuel tank
+Large fuel tank base
+Large globe
+Lemon
+Long triangle chocolate insert replacement name here
+MRE
+Mango
+Mannequin
+Mattress
+Measuring tape
+Medium TV
+Metal chair
+Metal sheet
+Metal table
+Microwave
+Milk bottle
+Mini oven
+Minifridge
+Mittens
+Moai head statue (L)
+Moai head statue (M)
+Moai head statue (S)
+Moai head statue (XS)
+Mop
+Mop bucket
+Motion sensor light
+Nail
+Nailgun
+Neon sign (ASO)
+Neon sign (Erie Cafe)
+Neon sign (Erie Zone)
+Neon sign (Erie's Cove)
+Neon sign (Keljoy)
+Neon sign (Kerfur)
+Neon sign (Monique)
+Neon sign (Stolas)
+Neon sign (Vinesauce)
+Notepad
+Orange
+Paper sheet
+Password changer
+Pencil
+Pet rock
+Picture (horizontal)
+Picture (square)
+Picture (table)
+Picture (vertical)
+Pill box
+Pills bottle
+Pin box
+Pineapple
+Pizza
+Pizza (Mushrooms)
+Pizza (Pineapple)
+Pizza (Shrimp)
+Plasma tv
+Plastic crate (open container)
+Plastic garden chair
+Plastic plant (small)
+Plate large (open container)
+Plate small (open container)
+Plunger
+Popcorn bag
+Portable PC
+Portable hot plate
+Portable mini TV
+Portable pressure washer
+Printer camera
+Pumpkin
+Pumpkin pie
+Radio
+Rake
+Ramp
+Rastabanana
+Rechargeable battery
+Remote drone
+Roach repellent
+Rock
+Rolling pin
+Rug (Custom)
+Rug (Long Red)
+Rug (Rectangle Blue)
+Rug (Rectangle Gray)
+Rug (Rectangle Green)
+Rug (Rectangle Red)
+Rug (Round Blue)
+Rug (Round Brown)
+Rug (Round Gray)
+Rug (Round White)
+Rug (Square Brown)
+Rug (Square Gray)
+Rug (Square Red)
+Rug (Square White)
+Salt lamp
+Scrap box (open container)
+Screwdriver
+Seed pack (Big bush)
+Seed pack (Cliff bush)
+Seed pack (Common bush)
+Seed pack (Dark bush)
+Seed pack (Dwarf poppy)
+Seed pack (Firey bush)
+Seed pack (Floral bush)
+Seed pack (Golden bush)
+Seed pack (Grass patch)
+Seed pack (Green helleborus flower)
+Seed pack (Lavender bush)
+Seed pack (Light bush)
+Seed pack (Magma bush)
+Seed pack (Purple daisy flower)
+Seed pack (Red bush)
+Seed pack (Red salvia flower)
+Seed pack (Rough bush)
+Seed pack (Round bush)
+Seed pack (Sin bush)
+Seed pack (Smooth bush)
+Seed pack (Tall bush)
+Seed pack (Thick bush)
+Seed pack (Wet bush)
+Seed pack (White daisy flower)
+Seed pack (Wide bush)
+Seed pack (Yellow lilly flower)
+Sell gun
+Server upgrade
+Shelf
+Sled
+Sleep pills
+Small globe
+Smoke detector
+Soap
+Soccer ball
+Soundproofing foam
+Spatula
+Spotlight (head)
+Spotlight (tripod)
+Steak (raw)
+Sticker pack (WIP)
+Sturdy container
+Sugar bag
+Swatter
+Syrup bottle
+TV
+TV remote
+Taco
+Tape
+The Object Thing Gizmo Entity
+Thermometer (WIP)
+Thorn wreath
+Tio de Nadal
+Toilet paper roll
+Tomato
+Torch
+Torch holder
+Traffic cone
+Trampoline
+Transformer upgrade
+UV light
+Vase
+Video camera (high quality)
+Video camera (low quality)
+Video camera (medium quality)
+Videocamera tripod
+Wall builder (WIP)
+Wall clocks
+Wall fixer (WIP)
+Wall light (big)
+Wall light (small)
+Wall mounted med cabinet
+Wall shelf
+Wardrobe
+Wastebasket
+Water sprinkler
+Watermelon
+Whiteboard
+Whiteboard pen (black)
+Whiteboard pen (blue)
+Whiteboard pen (green)
+Whiteboard pen (red)
+Whiteboard wiper
+Witch broom
+Witch hat
+Witches lantern
+Witches lantern (post)
+Woodchipper
+Wooden chair
+Wooden cutting board
+Wooden garden chair
+Wooden garden table
+Wooden pallet
+Wooden pallet (solid/heavy)
+Wooden plank
+Wooden table (Large)
+Wooden table (Medium)
+Wooden table (Small)
+Wool boot
+Workbench
+Wrench
+Zip drive
+cool funy 7 hours (real) (no fake)
+cool funy banana moth (real) (no fake) 
+cool funy cinnamon muncher
+cool funy fat bird (real) (no fake)
+cool funy fish guy (real) (no fake)
+cool funy glass cat (real) (no fake)
+cool funy racoon guy (real) (no fake)
+cool funy sweden man (real) (no fake)
+cool spooky ctuhu man (real) (no fake)
+jollys award star
+meatball
+pigeon
