@@ -241,18 +241,59 @@ complex_item_map = {
 item_map = {}
 inverse_item_map = {}
 
--- Items from older apworld generations (removed pools, renamed entries) that may no
--- longer match any display name in the game's list_props datatable.
--- Key: lowercase AP item name, value: internal prop key for GiveItem/spawnPropThroughGamemode.
--- Extend this list if more unsupported item names show up mid-run.
+-- Items from older apworld generations (removed pools, renamed entries) AND items
+-- whose in-game display name does not match the AP name (game version differences).
+-- Key: lowercase AP item name, value: internal list_props row key for GiveItem.
+-- Row keys verified against the game's list_props datamine and the mod's own logs.
 legacy_item_map = {
+    -- previously reported unsupported items
     ["broomba"] =              "roomba",
-    ["gas welder"] =           "tool_gw",
-    ["toolbox"] =              "toolbox",
     ["gas can"] =              "gascan",
     ["large fuel tank"] =      "fueltank_0",
     ["large fuel tank base"] = "fueltank_1",
-    ["radioactive capsule"] =  "rad"
+    ["radioactive capsule"] =  "rad",
+    ["ball joint"] =           "kerfsp_1",
+    ["limb joint"] =           "kerfsp_2",
+    ["shovel"] =               "shovel",
+    ["watering can"] =         "watercan",
+    ["welding mask"] =         "tool_wm",
+    ["badge"] =                "kerfoacc_badge",
+    ["jacket"] =               "kerfoacc_jacket",
+    ["hiking boots"] =         "fallboots",
+    ["crowbar"] =              "crowbar",
+    ["bowtie"] =               "kerfoacc_bowtie",
+    ["glasses"] =              "kerfoacc_glasses",
+    -- rest of the standard pool that is handed out as a plain prop
+    ["hacksaw"] =              "hacksaw",
+    ["hazmat suit"] =          "hazsuit",
+    ["pickaxe"] =              "pickaxe",
+    ["tinfoil hat"] =          "tinhat",
+    ["cig pack"] =             "cigp",
+    ["sponge"] =               "sponge",
+    ["pipebomb"] =             "pipebomb",
+    ["lead pipe"] =            "leadpipe",
+    ["ammo box"] =             "ammo",
+    ["axe"] =                  "axe",
+    ["old rifle"] =            "rifle",
+    ["medkit"] =               "medkit",
+    ["car keys"] =             "carkeys",
+    ["cooking book"] =         "cookingbook",
+    ["geiger counter"] =       "rad_d",
+    ["emf detector"] =         "emfdetec",
+    ["compost bucket"] =       "compostB",
+    ["atv wheel"] =            "atvWheel",
+    ["fuse"] =                 "fuse",
+    ["half hook"] =            "hook_h",
+    ["hook"] =                 "hook",
+    ["scuba mask"] =           "scuba",
+    ["scuba mask tank"] =      "scuba_t",
+    ["shrimp pack"] =          "shrimp",
+    ["deer skull"] =           "animalhead_0",
+    ["boar trophy head"] =     "ff_htrophy_0",
+    ["deer trophy head"] =     "ff_htrophy_1",
+    ["goat trophy head"] =     "ff_htrophy_2",
+    ["gas welder"] =           "tool_gw",
+    ["toolbox"] =              "toolbox"
 }
 
 function FillItemMap()
